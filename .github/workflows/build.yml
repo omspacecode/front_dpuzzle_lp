@@ -24,6 +24,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ steps.get_branch.outputs.branch }}
+      - name: "Remove .git and .github"
+        id: remove_git_github
+        run: |
+          rm -rf .git
+          rm -rf .github
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v2
         with:
@@ -47,6 +52,11 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+      - name: "Remove .git and .github"
+        id: remove_git_github
+        run: |
+          rm -rf .git
+          rm -rf .github
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v2
         with:
